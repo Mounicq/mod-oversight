@@ -40,6 +40,7 @@ if ($security == true) {
 					`id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
 					`coord` VARCHAR( 11 ) NOT NULL  ,
 					`datatime` INT( 11 ) NOT NULL  ,
+					`status`  VARCHAR(5) NOT NULL ,
 					`p_activiy_value` VARCHAR( 11 )   DEFAULT '-' NOT NULL  ,
 					`p_activiy` INT( 11 )  DEFAULT '0' NOT NULL  ,
 					`m_activiy_value` VARCHAR( 11 )   DEFAULT '-'  NOT NULL  ,

@@ -65,11 +65,13 @@ table.oversight td.tdtotal1 {
 }
 
 
+table.oversight th.status_v {
+    background-color: aqua !important;
+}
 table.oversight td.tdinfo {
     text-align: center;
     border-bottom: 1px solid black;
     color: lightgrey;
-
 }
 table.oversight th.value-no {
     background-color: green;

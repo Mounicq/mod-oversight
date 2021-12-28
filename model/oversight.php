@@ -209,6 +209,7 @@ function get_Insert($query)
         $tRow = array();
         $tRow["id"] = $tStatus["id"];
         $tRow["coord"] = $tStatus["coord"];
+        $tRow["status"] = $tStatus["status"];
         $tRow["datatime"] = $tStatus["datatime"];
         $tRow["p_activiy_value"] = $tStatus["p_activiy_value"];
         $tRow["p_activiy"] = $tStatus["p_activiy"];

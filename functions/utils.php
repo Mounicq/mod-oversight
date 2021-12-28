@@ -92,6 +92,7 @@ function formatMyInsert($tInsert)
         $retour[$insert["datatime"]][$insert["coord"]]["M"] = $insert["m_activiy_value"];
         $retour[$insert["datatime"]][$insert["coord"]]["P"] = $insert["p_activiy_value"];
         $retour[$insert["datatime"]][$insert["coord"]]["cdr"] = $insert["cdr"] / 1000;
+        $retour[$insert["datatime"]][$insert["coord"]]["status"] = $insert["status"];
     }
     return $retour;
 }
@@ -147,12 +148,13 @@ function getAnalyseHTMLTable( $tmstampToday, $tCoord, $tInsert)
                 if (isset($tInsert[$dateArray2]))
                     $dateArray = $dateArray2;
                 $val = (isset($tInsert[$dateArray][$coord][$elem])) ? $tInsert[$dateArray][$coord][$elem] : "";
+                $statusClass = (isset($tInsert[$dateArray][$coord]["status"])) ? "status_".$tInsert[$dateArray][$coord][status] : "";
                 $class = "";
                 if ($val !== "")
                     $class = ($val == -1 ? "-no" : ($val == 0 ? "-yes" : "-timer"));
                 ?>
                 <?php if ($elem != "cdr") : ?>
-                    <th class="tdinfo value<?php echo $class; ?>">
+                    <th class="tdinfo value<?php echo $class; ?> <?php echo $statusClass; ?>">
                         <?= $val ?>
                     </th>
                 <?php else : ?>

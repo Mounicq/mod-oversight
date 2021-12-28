@@ -78,8 +78,8 @@ if (class_exists("Callback")) {
                     }
 
                     $query = " REPLACE INTO  ".TABLE_OVERSIGHT ;
-                    $query .= "  (coord, datatime, p_activiy_value,p_activiy,   m_activiy_value, m_activiy, cdr,sender_id, player_id) ";
-                    $query .= " VALUES ('".$_gal.":".$_sys.":".$row."', '".(int)roundtimestamp($datatime )."', '".$rowContent["activity"]."', '".$p_activiy."' ,'".$rowContent["activityMoon"]."','".$m_activiy."' , '".($rowContent["debris"]["metal"] + $rowContent["debris"]["cristal"] )."', '".$user_data["user_id"]."','".$rowContent["player_id"]."');" ;
+                    $query .= "  (coord, datatime, status, p_activiy_value, p_activiy, m_activiy_value, m_activiy, cdr,sender_id, player_id) ";
+                    $query .= " VALUES ('".$_gal.":".$_sys.":".$row."', '".(int)roundtimestamp($datatime )."', '".$rowContent["status"]."', '".$rowContent["activity"]."', '".$p_activiy."' ,'".$rowContent["activityMoon"]."','".$m_activiy."' , '".($rowContent["debris"]["metal"] + $rowContent["debris"]["cristal"] )."', '".$user_data["user_id"]."','".$rowContent["player_id"]."');" ;
 
                     $db->sql_query($query);
                     $forDebug[]=$query;
