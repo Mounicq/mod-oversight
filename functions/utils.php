@@ -134,8 +134,11 @@ function getAnalyseHTMLTable( $tmstampToday, $tCoord, $tInsert)
     <?php foreach ($type as $elem) : ?>
         <tr>
             <?php if ($elem == 'P') : ?>
+                <?php 
+                list($galaxy, $system) = explode(':', $coord);
+                ?>
                 <th class="oversight-coord" scope="row" rowspan="3">
-                    <?= $coord ?>
+                    <a href="index.php?action=galaxy&galaxy=<?= $galaxy ?>&system=<?= $system ?>"><?= $coord ?>
                 </th>
             <?php endif; ?>
             <th class="<?= $elem == 'cdr' ? 'oversight-cdr' : '' ?>" scope="row">
@@ -154,7 +157,7 @@ function getAnalyseHTMLTable( $tmstampToday, $tCoord, $tInsert)
                     $class = ($val == -1 ? "-no" : ($val == 0 ? "-yes" : "-timer"));
                 ?>
                 <?php if ($elem != "cdr") : ?>
-                    <th class="tdinfo value<?php echo $class; ?> <?php echo $statusClass; ?>">
+                    <th class="tdinfo value<?php echo $class; ?> <?= $statusClass ?>">
                         <?= $val ?>
                     </th>
                 <?php else : ?>
